@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c795f899-97af-40f5-b2ba-4bae9e21054d" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/BowlingGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/BowlingGameTest.java" afterDir="false" />
+    <list default="true" id="c795f899-97af-40f5-b2ba-4bae9e21054d" name="Changes" comment="implemented score calculation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BowlingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BowlingGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Miss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Miss.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Number.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Number.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Spare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Spare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Strike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Strike.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Turn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Turn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BowlingGameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BowlingGameTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +23,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -55,12 +61,42 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BowlingGameTest">
+  <component name="RunManager" selected="JUnit.BowlingGameTest.anotherCheck">
     <configuration name="BowlingGameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BowlingGame" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="BowlingGameTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BowlingGameTest.anotherCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BowlingGame" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BowlingGameTest" />
+      <option name="METHOD_NAME" value="anotherCheck" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BowlingGameTest.tenMissesShouldEqualZero" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BowlingGame" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BowlingGameTest" />
+      <option name="METHOD_NAME" value="tenMissesShouldEqualZero" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BowlingGameTest.tenStrikesAndNineBonusShouldEqualMaxScore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BowlingGame" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BowlingGameTest" />
+      <option name="METHOD_NAME" value="tenStrikesAndNineBonusShouldEqualMaxScore" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -77,8 +113,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BowlingGameTest.anotherCheck" />
+        <item itemvalue="JUnit.BowlingGameTest.tenMissesShouldEqualZero" />
         <item itemvalue="JUnit.BowlingGameTest" />
         <item itemvalue="JUnit.BowlingGameTest.twelveStrikesShouldEqualMaxScore" />
+        <item itemvalue="JUnit.BowlingGameTest.tenStrikesAndNineBonusShouldEqualMaxScore" />
       </list>
     </recent_temporary>
   </component>
@@ -98,7 +137,49 @@
       <option name="project" value="LOCAL" />
       <updated>1665476075262</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added JUnit dependencies">
+      <created>1665477161730</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665477161730</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added basic bowling game class and tests">
+      <created>1665477255763</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1665477255763</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added default frame and turn classes">
+      <created>1665482057772</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1665482057772</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added turn type classes">
+      <created>1665482084134</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1665482084134</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added parsing of game result string as object tree">
+      <created>1665482330625</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1665482330625</updated>
+    </task>
+    <task id="LOCAL-00007" summary="implemented score calculation">
+      <created>1665485495734</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1665485495734</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -114,9 +195,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="added JUnit dependencies" />
+    <MESSAGE value="added basic bowling game class and tests" />
+    <MESSAGE value="added default frame and turn classes" />
+    <MESSAGE value="added turn type classes" />
+    <MESSAGE value="added parsing of game result string as object tree" />
+    <MESSAGE value="implemented score calculation" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented score calculation" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/BowlingGame$BowlingGameTest.ic" NAME="BowlingGameTest Coverage Results" MODIFIED="1665476800553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/BowlingGame$BowlingGameTest.ic" NAME="BowlingGameTest Coverage Results" MODIFIED="1665494903568" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
