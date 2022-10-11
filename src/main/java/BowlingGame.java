@@ -4,19 +4,25 @@ import java.util.List;
 public class BowlingGame {
 
     private List<Frame> frames = new ArrayList<>();
+    public static final int MAX_VALID_FRAMES_WITHOUT_BONUS = 10;
 
     public BowlingGame(String frameString) {
         this.convertFrameStringToObjects(frameString);
     }
 
     public int getTotalScore() {
-        return 0;
+        int totalScore = 0;
+        for (int i = 0; i < MAX_VALID_FRAMES_WITHOUT_BONUS; i++) {
+            totalScore += this.frames.get(i).getScore();
+        }
+        return totalScore;
     }
 
     private void convertFrameStringToObjects(String frameString) {
         String[] frameSymbols = frameString.split(" ");
+        int frameCounter = 0;
         for (String turnSymbols : frameSymbols) {
-            Frame frame = new Frame();
+            Frame frame = new Frame(this, frameCounter);
             for (int i = 0; i < turnSymbols.length(); i++) {
                 char turnSymbol = turnSymbols.charAt(i);
                 Turn turn;
@@ -32,7 +38,16 @@ public class BowlingGame {
                 }
                 frame.addTurn(turn);
             }
-            this.frames.add(frame);
+            this.addFrame(frame);
+            frameCounter++;
         }
+    }
+
+    private boolean addFrame(Frame frame) {
+        return this.frames.add(frame);
+    }
+
+    public List<Frame> getFrames() {
+        return this.frames;
     }
 }
