@@ -14,36 +14,24 @@ public class Frame {
 
     public int getScore() {
         Turn firstTurn = this.turns.get(0);
-        if (this.frameNumber >= BowlingGame.MAX_VALID_FRAMES_WITHOUT_BONUS) {
-            return firstTurn.getNumberRepresentation();
-        }
         if (firstTurn instanceof Strike) {
-            return firstTurn.getNumberRepresentation() + this.getNextFrame().getNumberRepresenation() + this.getNextFrame().getNextFrame().getNumberRepresenation();
+            return firstTurn.getNumberRepresentation() + firstTurn.getNextTurn().getNumberRepresentation() + firstTurn.getNextTurn().getNextTurn().getNumberRepresentation();
         }
         Turn secondTurn = this.turns.get(1);
         if (secondTurn instanceof Spare) {
-            return secondTurn.getNumberRepresentation() + this.getNextFrame().getTurns().get(0).getNumberRepresentation();
+            return secondTurn.getNumberRepresentation() + secondTurn.getNextTurn().getNumberRepresentation();
         }
         return firstTurn.getNumberRepresentation() + secondTurn.getNumberRepresentation();
     }
 
     public boolean addTurn(Turn turn) {
+        this.getGame().increaseTurnCounter();
+        turn.setTurnNumber(this.getGame().getTurnCounter());
+        this.getGame().addTurn(turn);
         return this.turns.add(turn);
     }
 
-    public List<Turn> getTurns() {
-        return this.turns;
-    }
-
-    public int getNumberRepresenation() {
-        int totalNumberRepresentation = 0;
-        for (Turn turn : this.turns) {
-            totalNumberRepresentation += turn.getNumberRepresentation();
-        }
-        return totalNumberRepresentation;
-    }
-
-    private Frame getNextFrame() {
-        return this.game.getFrames().get(this.frameNumber + 1);
+    public BowlingGame getGame() {
+        return game;
     }
 }

@@ -4,7 +4,9 @@ import java.util.List;
 public class BowlingGame {
 
     private List<Frame> frames = new ArrayList<>();
+    private List<Turn> turns = new ArrayList<>();
     public static final int MAX_VALID_FRAMES_WITHOUT_BONUS = 10;
+    private int turnCounter = 0;
 
     public BowlingGame(String frameString) {
         this.convertFrameStringToObjects(frameString);
@@ -27,14 +29,14 @@ public class BowlingGame {
                 char turnSymbol = turnSymbols.charAt(i);
                 Turn turn;
                 if (turnSymbol == 'X') {
-                    turn = new Strike();
+                    turn = new Strike(frame);
                 } else if (turnSymbol == '/') {
-                    turn = new Spare();
+                    turn = new Spare(frame);
                 } else if (turnSymbol == '-') {
-                    turn = new Miss();
+                    turn = new Miss(frame);
                 } else {
                     int pinsHit = Integer.parseInt(String.valueOf(turnSymbol));
-                    turn = new Number(pinsHit);
+                    turn = new Number(frame, pinsHit);
                 }
                 frame.addTurn(turn);
             }
@@ -47,7 +49,17 @@ public class BowlingGame {
         return this.frames.add(frame);
     }
 
-    public List<Frame> getFrames() {
-        return this.frames;
+    public boolean addTurn(Turn turn) {
+        return this.turns.add(turn);
+    }
+    public Turn getTurn(int turnNumber) {
+        return this.turns.get(turnNumber);
+    }
+
+    public int getTurnCounter () {
+        return this.turnCounter;
+    }
+    public void increaseTurnCounter () {
+        this.turnCounter++;
     }
 }
