@@ -1,12 +1,38 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class BowlingGame {
 
-    private String frames;
+    private List<Frame> frames = new ArrayList<>();
 
-    public BowlingGame(String frames) {
-        this.frames = frames;
+    public BowlingGame(String frameString) {
+        this.convertFrameStringToObjects(frameString);
     }
 
     public int getTotalScore() {
-        return 300;
+        return 0;
+    }
+
+    private void convertFrameStringToObjects(String frameString) {
+        String[] frameSymbols = frameString.split(" ");
+        for (String turnSymbols : frameSymbols) {
+            Frame frame = new Frame();
+            for (int i = 0; i < turnSymbols.length(); i++) {
+                char turnSymbol = turnSymbols.charAt(i);
+                Turn turn;
+                if (turnSymbol == 'X') {
+                    turn = new Strike();
+                } else if (turnSymbol == '/') {
+                    turn = new Spare();
+                } else if (turnSymbol == '-') {
+                    turn = new Miss();
+                } else {
+                    int pinsHit = Integer.parseInt(String.valueOf(turnSymbol));
+                    turn = new Number(pinsHit);
+                }
+                frame.addTurn(turn);
+            }
+            this.frames.add(frame);
+        }
     }
 }
