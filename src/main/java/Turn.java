@@ -15,6 +15,11 @@ abstract class Turn {
         return nextTurn;
     }
 
+    Turn getPreviousTurn() {
+        Turn previousTurn = this.getFrame().getGame().getTurn(this.turnNumber - 2);
+        return previousTurn;
+    }
+
     public void setTurnNumber(int turnNumber) {
         this.turnNumber = turnNumber;
     }

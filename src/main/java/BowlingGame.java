@@ -3,9 +3,10 @@ import java.util.List;
 
 public class BowlingGame {
 
+    public static final int MAX_VALID_FRAMES_WITHOUT_BONUS = 10;
+    public static final int MAX_PINS_HIT_IN_ONE_FRAME = 10;
     private List<Frame> frames = new ArrayList<>();
     private List<Turn> turns = new ArrayList<>();
-    public static final int MAX_VALID_FRAMES_WITHOUT_BONUS = 10;
     private int turnCounter = 0;
 
     public BowlingGame(String frameString) {
@@ -22,9 +23,8 @@ public class BowlingGame {
 
     private void convertFrameStringToObjects(String frameString) {
         String[] frameSymbols = frameString.split(" ");
-        int frameCounter = 0;
         for (String turnSymbols : frameSymbols) {
-            Frame frame = new Frame(this, frameCounter);
+            Frame frame = new Frame(this);
             for (int i = 0; i < turnSymbols.length(); i++) {
                 char turnSymbol = turnSymbols.charAt(i);
                 Turn turn;
@@ -41,21 +41,18 @@ public class BowlingGame {
                 frame.addTurn(turn);
             }
             this.addFrame(frame);
-            frameCounter++;
         }
     }
 
     private boolean addFrame(Frame frame) {
         return this.frames.add(frame);
     }
-
     public boolean addTurn(Turn turn) {
         return this.turns.add(turn);
     }
     public Turn getTurn(int turnNumber) {
         return this.turns.get(turnNumber);
     }
-
     public int getTurnCounter () {
         return this.turnCounter;
     }

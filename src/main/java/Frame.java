@@ -5,11 +5,9 @@ public class Frame {
 
     List<Turn> turns = new ArrayList<>();
     BowlingGame game;
-    int frameNumber;
 
-    public Frame(BowlingGame game, int frameNumber) {
+    public Frame(BowlingGame game) {
         this.game = game;
-        this.frameNumber = frameNumber;
     }
 
     public int getScore() {
@@ -19,7 +17,7 @@ public class Frame {
         }
         Turn secondTurn = this.turns.get(1);
         if (secondTurn instanceof Spare) {
-            return secondTurn.getNumberRepresentation() + secondTurn.getNextTurn().getNumberRepresentation();
+            return firstTurn.getNumberRepresentation() + secondTurn.getNumberRepresentation() + secondTurn.getNextTurn().getNumberRepresentation();
         }
         return firstTurn.getNumberRepresentation() + secondTurn.getNumberRepresentation();
     }

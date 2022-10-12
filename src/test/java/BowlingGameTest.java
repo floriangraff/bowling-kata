@@ -38,4 +38,10 @@ class BowlingGameTest {
         BowlingGame game = new BowlingGame("-1 -2 -3 -4 -5 -6 -7 -8 -9 --");
         assertEquals(45, game.getTotalScore());
     }
+
+    @Test
+    void tenStrikesAndSpareWithTwoShouldEqualTwoHundredAndEightyTwo() {
+        BowlingGame game = new BowlingGame("X X X X X X X X X X 2/");
+        assertEquals(282, game.getTotalScore());
+    }
 }
