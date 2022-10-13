@@ -1,6 +1,5 @@
 public class Miss extends Turn {
 
-
     public Miss(Frame frame) {
         super(frame);
     }
