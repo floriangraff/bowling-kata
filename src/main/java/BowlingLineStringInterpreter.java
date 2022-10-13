@@ -3,14 +3,20 @@ import java.util.List;
 
 public class BowlingLineStringInterpreter {
 
-    public List<Frame> getFrameListFromLineString(String frameString, BowlingGame game) {
+    public List<Frame> getFrameListFromLineString(String frameString) {
         List<Frame> frames = new ArrayList<>();
         String[] frameSymbols = frameString.split(" ");
+        Turn previousTurn = null;
         for (String turnSymbols : frameSymbols) {
-            Frame frame = new Frame(game);
+            Frame frame = new Frame();
             for (int i = 0; i < turnSymbols.length(); i++) {
                 char turnSymbol = turnSymbols.charAt(i);
                 Turn turn = this.getTurnBySymbol(turnSymbol, frame);
+                if (previousTurn != null) {
+                    turn.setPreviousTurn(previousTurn);
+                    previousTurn.setNextTurn(turn);
+                }
+                previousTurn = turn;
                 frame.addTurn(turn);
             }
             frames.add(frame);

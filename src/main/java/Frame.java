@@ -4,11 +4,6 @@ import java.util.List;
 public class Frame {
 
     List<Turn> turns = new ArrayList<>();
-    BowlingGame game;
-
-    public Frame(BowlingGame game) {
-        this.game = game;
-    }
 
     public int getScore() {
         Turn firstTurn = this.turns.get(0);
@@ -23,13 +18,6 @@ public class Frame {
     }
 
     public boolean addTurn(Turn turn) {
-        this.getGame().increaseTurnCounter();
-        turn.setTurnNumber(this.getGame().getTurnCounter());
-        this.getGame().addTurn(turn);
         return this.turns.add(turn);
-    }
-
-    public BowlingGame getGame() {
-        return game;
     }
 }
