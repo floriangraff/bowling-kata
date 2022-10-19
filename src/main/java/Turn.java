@@ -2,10 +2,6 @@ abstract class Turn {
     Turn nextTurn;
     Turn previousTurn;
 
-    public Turn(Frame frame) {
-
-    }
-
     abstract int getNumberRepresentation();
 
     Turn getNextTurn() {

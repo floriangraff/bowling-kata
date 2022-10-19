@@ -1,8 +1,7 @@
 public class Number extends Turn {
     private int pinsHit;
 
-    public Number(Frame frame, int pinsHit) {
-        super(frame);
+    public Number(int pinsHit) {
         this.pinsHit = pinsHit;
     }
 
